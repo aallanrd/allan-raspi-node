@@ -40,6 +40,9 @@
 
       var socket =  io();
       $('#stream').hide();
+      $("#div_image").image("/stream/image_stream1.jpg",function(){
+          alert("The image is loaded now");
+      });
 
       socket.on('liveStream', function(url)
       {
@@ -66,21 +69,18 @@
 
       function  call() {
 
-          $.ajax({
-              type: "GET",
-              url:'/stream/image_stream1.jpg',
-              contentType: "image/jpg",
-              data: "",
-              success: function(img) {
-                  i = new Image();
-                  i.src = img;
-                  $(div_image).append(i);
-              },
-              error: function(error, txtStatus) {
-                  console.log(txtStatus);
-                  console.log('error');
-              }
-          } );
+          $.fn.image = function (src, f) {
+              return this.each(function () {
+                  var i = new Image();
+                  i.src = src;
+                  i.onload = f;
+                  this.appendChild(i);
+              });
+          }
+      }
+
+
+
 
     }
 
