@@ -34,12 +34,12 @@ io.on('connection', function (socket) {
            // var j = decoder.write(buf);
             const bufx = Buffer.from(buf, 'ascii');
 
-            console.log(bufx.toString('base64'));
+            var jj = bufx.toString('base64');
            // var j = buf.toString('utf-8');
           //  socket.emit('news', j);
 
 
-            socket.emit('news',bufx);
+            socket.emit('news', jj);
           
         });
 
