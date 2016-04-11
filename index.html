@@ -37,24 +37,29 @@
 
   <script>
 
+
+      var socket =  io();
+
+      socket.on('liveStream', function(url)
+      {
+
+          $('#stream').attr('src', url);
+          $('#stream').show();
+      });
+
       function  total() {
 
 
           $('#stream').hide();
-          var socket = new io();
-
 
           socket.emit('take');
 
+
+
+      }
+
+      function  emit() {
           window.setTimeout( socket.emit('start-stream'),2000);
-          socket.on('liveStream', function(url)
-          {
-
-              $('#stream').attr('src', url);
-              $('#stream').show();
-          });
-
-          io.stop();
       }
 
   </script>
