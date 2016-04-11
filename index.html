@@ -53,7 +53,11 @@
 
           return this.each(function () {
               socket.emit('take');
-              loadImage(src,f);
+              loadImage();
+              var i = new Image();
+              i.src = src;
+              i.onload = f;
+              this.appendChild(i);
           });
       }
 
@@ -64,11 +68,8 @@
           });
       }
 
-      function loadImage(src,f) {
-          var i = new Image();
-          i.src = src;
-          i.onload = f;
-          this.appendChild(i);
+      function loadImage() {
+          window.setTimeout(startStream,1800);
       }
 
 
