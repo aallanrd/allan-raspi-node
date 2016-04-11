@@ -35,25 +35,20 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bootstrapjs"></script>
     <script src="/socket.io/socket.io.js"></script>
-
     <script>
         var socket = io();
-
-
         function sendPic() {
-            socket.emit('tomar-foto', "Foto Tomada desde CLiente");
+            socket.emit('tomar-foto', "toma-foto-cliente");
             setTimeout(function(){
-                socket.emit('send-foto', "Cliente solicita foto");
-                socket.on('news', function (data) {
+                socket.emit('send-foto', "cliente-solicita-foto");
+                socket.on('camara', function (data) {
                     var image = new Image();
                     image.src = 'data:image/png;base64,' +data  ;
                     //image.class.add("responsive-img");
                     $("#div_image").html( image );
-
                 });
-
+                sendPic();
             },2000);
-
         }
     </script>
 
@@ -64,24 +59,16 @@
   <h1 class="text-center">Camera Stream
     <small>Powered by AllanRD</small>
   </h1>
- 
   <hr>
- 
-  
   <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
           <h1>Visualizando </h1>
           <button class="btn btn-primary btn-lg" onclick="sendPic()"> <i class="fa fa-camera"></i> -Tomar Foto-</button>
-
           <hr>
-
           <div class="panel" id="div_image">Image from Camera </div>
        </div>
-
       <div class="col-md-2"></div>
-
-
   </div>
  
 </body>
