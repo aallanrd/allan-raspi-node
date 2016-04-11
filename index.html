@@ -41,12 +41,12 @@
 
 
           $('#stream').hide();
-          var socket = io();
+          var socket = new io();
 
 
           socket.emit('take');
 
-          window.setTimeout( socket.emit('start-stream'),1800);
+          window.setTimeout( socket.emit('start-stream'),2000);
           socket.on('liveStream', function(url)
           {
 
@@ -54,6 +54,7 @@
               $('#stream').show();
           });
 
+          io.stop();
       }
 
   </script>
