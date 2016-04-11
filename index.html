@@ -59,11 +59,9 @@
 
       function  total() {
 
-          //socket.emit('take');
-          //emit();
-          $("#div_image").image("/stream/image_stream1.jpg",function(){
-              alert("The image is loaded now");
-          });
+          socket.emit('take');
+          emit();
+
 
       }
 
@@ -73,7 +71,10 @@
       }
 
       function startStream() {
-          socket.emit('start-stream');
+        //  socket.emit('start-stream');
+          $("#div_image").image("/stream/image_stream1.jpg",function(){
+              alert("The image is loaded now");
+          });
       }
 
 
