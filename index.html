@@ -51,7 +51,8 @@
 
       $.fn.image = function (src, f) {
 
-          socket.emit('take').delay(2000);
+
+          window.setTimeout(socket.emit('take'),1800);
           return this.each(function () {
 
               var i = new Image();
@@ -60,7 +61,7 @@
               this.appendChild(i);
           });
       }
-      
+
       function startStream() {
         //  socket.emit('start-stream');
           $("#div_image").image("/stream/image_stream1.jpg",function(){
