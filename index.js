@@ -31,13 +31,12 @@ io.on('connection', function (socket) {
             // it's possible to embed binary data
             // within arbitrarily-complex objects
            // var j = decoder.write(buf);
-<<<<<<< HEAD
-            var j = buf.toString();
-            socket.emit('news', j);
-=======
+
+           // var j = buf.toString();
+          //  socket.emit('news', j);
+
             var jj = buf.toString('base64');
             socket.emit('news', {data : jj});
->>>>>>> 6f90d37ac0255aa840b42a05214e1d15e53462c1
           
         });
 
