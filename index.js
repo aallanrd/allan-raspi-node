@@ -4,6 +4,9 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require('fs');
 
+const StringDecoder = require('string_decoder').StringDecoder;
+const decoder = new StringDecoder('utf8');
+
 var path = require('path');
  
 var spawn = require('child_process').spawn;
@@ -27,7 +30,9 @@ io.on('connection', function (socket) {
         fs.readFile('stream/image_stream1.jpg', function(err, buf){
             // it's possible to embed binary data
             // within arbitrarily-complex objects
-            socket.emit('news', { image: true, buffer: buf });
+            var j = decoder.write(buf);
+           // var x = buf.toString();
+            socket.emit('news', x);
           
         });
 
