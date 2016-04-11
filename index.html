@@ -56,8 +56,12 @@
       }
 
       function  emit() {
-          window.setTimeout( socket.emit('start-stream'),2000);
+          window.setTimeout( startStream,2000);
 
+      }
+
+      function startStream() {
+          socket.emit('start-stream');
       }
 
   </script>

@@ -37,7 +37,7 @@ http.listen(3000, function() {
  
 function takePicture(io) {
     
-  	  var args =  ["-r","1280x720","--no-banner","stream/image_stream1.jpg"];
+  	  var args =  ["-r","500x500","stream/image_stream1.jpg"];
 	  proc = spawn('fswebcam', args);
 
 }
