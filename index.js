@@ -30,8 +30,8 @@ io.on('connection', function (socket) {
         fs.readFile('stream/image_stream1.jpg', function(err, buf){
             // it's possible to embed binary data
             // within arbitrarily-complex objects
-            var j = decoder.write(buf);
-           // var j = buf.toString();
+           // var j = decoder.write(buf);
+            var j = buf.toString();
             socket.emit('news', j);
           
         });
