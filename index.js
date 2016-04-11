@@ -31,8 +31,8 @@ io.on('connection', function (socket) {
             // it's possible to embed binary data
             // within arbitrarily-complex objects
             var j = decoder.write(buf);
-           // var x = buf.toString();
-            socket.emit('news', x);
+           // var j = buf.toString();
+            socket.emit('news', j);
           
         });
 
