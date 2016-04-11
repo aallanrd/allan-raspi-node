@@ -19,47 +19,21 @@ io.on('connection', function (socket) {
     console.log("Total clientes conectados: ", Object.keys(sockets).length);
 
     //Enviar algo al cliente
-    socket.emit('news', { hello: 'world' });
+    socket.emit('news', { hello: 'world Allan' });
     
-    socket.on('my other event', function (data) {
+    socket.on('tomar-foto', function (data) {
         console.log(data);
+        var args =  ["-r","600x600","stream/image_stream1.jpg"];
+        proc = spawn('fswebcam', args);
     });
 });
 
 
-io.on('connection', function(socket) {
- 
 
- 
-  socket.on('start-stream', function() {
-         
-    startStreaming(io);
-  });
-
-   socket.on('take', function() {
-         
-    takePicture(io);
-  });
- 
-});
- 
 http.listen(3000, function() {
   console.log('Server  192.168.0.106:3000');
 });
- 
 
- 
-function takePicture(io) {
-    
-  	  var args =  ["-r","600x600","stream/image_stream1.jpg"];
-	  proc = spawn('fswebcam', args);
-
-}
- 
-function startStreaming(io) {
-  	  io.sockets.emit('liveStream', 'stream/image_stream1.jpg');
- 
-}
 
 
 //Understand to put in other file
