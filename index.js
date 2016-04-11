@@ -28,6 +28,7 @@ io.on('connection', function (socket) {
             // it's possible to embed binary data
             // within arbitrarily-complex objects
             socket.emit('news', { image: true, buffer: buf });
+          
         });
 
     });

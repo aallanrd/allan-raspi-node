@@ -46,8 +46,10 @@
         function sendPic() {
             socket.emit('send-foto', "Cliente solicita foto");
             socket.on('news', function (data) {
-                console.log(data);
-                alert(data);
+
+               var buffer  = data.buf;
+                alert(buffer[0]);
+
             });
 
 
