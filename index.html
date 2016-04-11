@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stream My Aquarium</title>
+ 
+  <!-- Bootstrap CSS -->
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+ 
+  <style type="text/css">
+  #stream {
+    height: 99%;
+    margin: 0px auto;
+    display: block;
+    margin-top: 20px;
+  }
+  </style>
+ 
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+	var socket = io();
+		  socket.on('liveStream', function(url) {
+		    $('#stream').attr('src', url);
+		    $('.start').hide();
+		  });
+ 
+  
+ 
+            function start(){
+             socket.emit('start-stream');
+             
+           }
+
+	   function startStream() {
+	
+	    socket.emit('take');
+	    
+            window.setTimeout(start,1800);
+
+
+   	   }
+
+
+
+
+  </script>
+</head>
+ 
+<body class="container" onload="startStream()">
+  <h1 class="text-center">Camera Stream
+    <small>Powered by AllanRD</small>
+  </h1>
+ 
+  <hr>
+ 
+  
+  <div class="row">
+    <img src="" id="stream">
+  </div>
+ 
+</body>
+ 
+</html>
