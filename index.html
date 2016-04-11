@@ -51,14 +51,9 @@
 
       $.fn.image = function (src, f) {
 
-
-          window.setTimeout(socket.emit('take'),1800);
           return this.each(function () {
-
-              var i = new Image();
-              i.src = src;
-              i.onload = f;
-              this.appendChild(i);
+              socket.emit('take');
+              loadImage(src,f);
           });
       }
 
@@ -69,6 +64,12 @@
           });
       }
 
+      function loadImage(src,f) {
+          var i = new Image();
+          i.src = src;
+          i.onload = f;
+          this.appendChild(i);
+      }
 
 
   </script>
@@ -86,7 +87,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
           <h1>Visualizando </h1>
-          <button class="btn btn-primary" onclick="startStream()">Reload</button>
+          <button class="btn btn-primary" onclick="startStream()">Tomar Foto</button>
           <img src="" id="stream" class="img-responsive thumb" ></div>
       <div class="col-md-2"></div>
 
