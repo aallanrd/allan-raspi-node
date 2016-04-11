@@ -19,10 +19,22 @@ app.get('/stream/image_stream1.jpg', function(req, res) {
   res.sendFile(__dirname + '/stream/image_stream1.jpg');
 });
 
+app.get('/jquery', function(req, res) {
+    res.sendFile(__dirname + '/bower_components/jquery/dist/jquery.js');
+});
+
 app.get('/bootstrapjs', function(req, res) {
     res.sendFile(__dirname + '/bower_components/bootstrap/dist/js/bootstrap.js');
 });
- 
+
+app.get('/bootstrapcss', function(req, res) {
+    res.sendFile(__dirname + '/bower_components/bootstrap/dist/css/bootstrap.css');
+});
+
+app.get('/fontawesome', function(req, res) {
+    res.sendFile(__dirname + '/bower_components/font-awesome/css/font-awesome.css');
+});
+
 var sockets = {};
  
 io.on('connection', function(socket) {
