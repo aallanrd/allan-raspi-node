@@ -46,8 +46,7 @@ http.listen(3000, function() {
 
  
 function takePicture(io) {
- 
-	  
+    
   	  var args =  ["stream/image_stream1.jpg"];
 	  proc = spawn('fswebcam', args);
  
