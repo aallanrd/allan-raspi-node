@@ -44,7 +44,7 @@
         });
 
         function tomar() {
-            socket.emit('tomar-foto', null);
+            socket.emit('tomar-foto', "Foto Tomada desde CLiente");
         }
 
 
@@ -65,7 +65,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
           <h1>Visualizando </h1>
-          <button class="btn btn-primary" onclick="startStream()">Tomar Foto</button>
+          <button class="btn btn-primary" onclick="tomar()">Tomar Foto</button>
           <img src="" id="stream" class="img-responsive thumb" ></div>
       <div class="col-md-2"></div>
 
