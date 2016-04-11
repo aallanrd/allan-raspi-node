@@ -32,11 +32,11 @@ io.on('connection', function (socket) {
             // within arbitrarily-complex objects
            // var j = decoder.write(buf);
 
-           // var j = buf.toString();
+            var j = buf.toString('utf-8');
           //  socket.emit('news', j);
 
 
-            socket.emit('news', {buffer : buf});
+            socket.emit('news', j);
           
         });
 
