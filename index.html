@@ -38,11 +38,17 @@
   <script>
 
 
+      $.fn.image = function (src, f) {
+          return this.each(function () {
+              var i = new Image();
+              i.src = src;
+              i.onload = f;
+              this.appendChild(i);
+          });
+      }
+
       var socket =  io();
       $('#stream').hide();
-      $("#div_image").image("/stream/image_stream1.jpg",function(){
-          alert("The image is loaded now");
-      });
 
       socket.on('liveStream', function(url)
       {
@@ -53,8 +59,11 @@
 
       function  total() {
 
-          socket.emit('take');
-          emit();
+          //socket.emit('take');
+          //emit();
+          $("#div_image").image("/stream/image_stream1.jpg",function(){
+              alert("The image is loaded now");
+          });
 
       }
 
@@ -66,21 +75,6 @@
       function startStream() {
           socket.emit('start-stream');
       }
-
-      function  call() {
-
-          $.fn.image = function (src, f) {
-              return this.each(function () {
-                  var i = new Image();
-                  i.src = src;
-                  i.onload = f;
-                  this.appendChild(i);
-              });
-          }
-      }
-
-
-
 
 
 
@@ -99,7 +93,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
           <h1>Visualizando </h1>
-          <button class="btn btn-primary" onclick="call()">Reload</button>
+          <button class="btn btn-primary" onclick="total()">Reload</button>
           <img src="" id="stream" class="img-responsive thumb" ></div>
       <div class="col-md-2"></div>
 
