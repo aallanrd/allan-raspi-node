@@ -38,19 +38,21 @@
   <script>
 
 
+      var socket =  io();
+
+      socket.on('liveStream', function(url)
+      {
+
+          $('#stream').attr('src', url);
+          $('#stream').show();
+      });
+
+
+
       $.fn.image = function (src, f) {
+
+          socket.emit('take').delay(2000);
           return this.each(function () {
-
-              var socket =  io();
-
-              socket.on('liveStream', function(url)
-              {
-
-                  $('#stream').attr('src', url);
-                  $('#stream').show();
-              });
-
-              socket.emit('take');
 
               var i = new Image();
               i.src = src;
@@ -58,8 +60,7 @@
               this.appendChild(i);
           });
       }
-
-
+      
       function startStream() {
         //  socket.emit('start-stream');
           $("#div_image").image("/stream/image_stream1.jpg",function(){
