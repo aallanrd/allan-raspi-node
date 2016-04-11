@@ -19,6 +19,9 @@ app.get('/stream/image_stream1.jpg', function(req, res) {
   res.sendFile(__dirname + '/stream/image_stream1.jpg');
 });
 
+app.get('/bootstrapjs', function(req, res) {
+    res.sendFile(__dirname + '/bower_components/bootstrap/dist/js/bootstrap.js');
+});
  
 var sockets = {};
  
