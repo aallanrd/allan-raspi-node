@@ -36,24 +36,24 @@
   <script src="/socket.io/socket.io.js"></script>
 
   <script>
-	 var socket = io();
-     socket.on('liveStream', function(url)
-     {
-		    $('#stream').attr('src', url);
-		    $('.start').hide();
-     });
 
-            function start(){
-             socket.emit('start-stream');
-             
-            }
+      function  total() {
 
-     function startStream()
-     {
-         socket.emit('take');
-         window.setTimeout(start,2200);
 
-     }
+          var socket = io();
+          socket.on('liveStream', function(url)
+          {
+
+              $('#stream').attr('src', url);
+              $('.start').hide();
+          });
+
+          socket.emit('take');
+          window.setTimeout( socket.emit('start-stream'),2200);
+
+
+      }
+
   </script>
 </head>
  
@@ -69,7 +69,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
           <h1>Visualizando </h1>
-          <button class="btn btn-primary" onclick="startStream()">Reload</button>
+          <button class="btn btn-primary" onclick="total()">Reload</button>
           <img src="" id="stream" class="img-responsive thumb" ></div>
       <div class="col-md-2"></div>
 
