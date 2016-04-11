@@ -47,7 +47,7 @@
             socket.emit('send-foto', "Cliente solicita foto");
             socket.on('news', function (data) {
                 console.log(data);
-
+                alert(data);
             });
 
         }
@@ -71,6 +71,10 @@
       <div class="col-md-8 text-center">
           <h1>Visualizando </h1>
           <button class="btn btn-primary" onclick="tomar()">Tomar Foto</button>
+
+          <button class="btn btn-primary" onclick="sendPic()">Traer Foto</button>
+
+
           <img src="" id="stream" class="img-responsive thumb" ></div>
       <div class="col-md-2"></div>
 
