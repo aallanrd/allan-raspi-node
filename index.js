@@ -30,7 +30,8 @@ io.on('connection', function (socket) {
             const bufx = Buffer.from(buf, 'ascii');
             var imageHex = bufx.toString('hex');
             var imageBinary = bufx.toString('binary');
-            socket.emit('news', imageHex);
+            var imageB64 = bufx.toString('base64');
+            socket.emit('news', imageB64);
           
         });
 
