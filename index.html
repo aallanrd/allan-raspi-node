@@ -39,23 +39,18 @@
 
 
       var socket =  io();
+      $('#stream').hide();
 
+      socket.on('liveStream', function(url)
+      {
 
+          $('#stream').attr('src', url);
+          $('#stream').show();
+      });
 
       function  total() {
 
-
-          socket.disconnect();
-          socket.on('liveStream', function(url)
-          {
-
-              $('#stream').attr('src', url);
-              $('#stream').show();
-          });
-          $('#stream').hide();
-
           socket.emit('take');
-
           emit();
 
       }
