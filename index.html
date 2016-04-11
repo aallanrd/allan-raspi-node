@@ -40,16 +40,18 @@
 
       var socket =  io();
 
-      socket.on('liveStream', function(url)
-      {
 
-          $('#stream').attr('src', url);
-          $('#stream').show();
-      });
 
       function  total() {
 
 
+          socket.disconnect();
+          socket.on('liveStream', function(url)
+          {
+
+              $('#stream').attr('src', url);
+              $('#stream').show();
+          });
           $('#stream').hide();
 
           socket.emit('take');
@@ -60,6 +62,7 @@
 
       function  emit() {
           window.setTimeout( socket.emit('start-stream'),2000);
+
       }
 
   </script>
