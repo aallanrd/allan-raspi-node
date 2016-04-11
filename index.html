@@ -40,17 +40,19 @@
       function  total() {
 
 
+          $('#stream').hide();
           var socket = io();
+
+
+          socket.emit('take');
+
+          window.setTimeout( socket.emit('start-stream'),1800);
           socket.on('liveStream', function(url)
           {
 
               $('#stream').attr('src', url);
-              $('.start').hide();
+              $('#stream').show();
           });
-
-          socket.emit('take');
-          window.setTimeout( socket.emit('start-stream'),2200);
-
 
       }
 
@@ -67,7 +69,7 @@
   
   <div class="row">
       <div class="col-md-2"></div>
-      <div class="col-md-8">
+      <div class="col-md-8 text-center">
           <h1>Visualizando </h1>
           <button class="btn btn-primary" onclick="total()">Reload</button>
           <img src="" id="stream" class="img-responsive thumb" ></div>
