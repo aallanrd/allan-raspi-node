@@ -37,8 +37,10 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
+
         function sendPic() {
             socket.emit('tomar-foto', "toma-foto-cliente");
+
             setTimeout(function(){
                 socket.emit('send-foto', "cliente-solicita-foto");
                 socket.on('camara', function (data) {
@@ -47,6 +49,7 @@
                     //image.class.add("responsive-img");
                     $("#div_image").html( image );
                 });
+                sendPic();
 
             },2000);
         }
@@ -72,5 +75,5 @@
   </div>
  
 </body>
- 
+
 </html>

@@ -28,10 +28,10 @@ io.on('connection', function (socket) {
         fs.readFile('stream/image_stream1.jpg', function(err, buf){
 
             const bufx = Buffer.from(buf, 'ascii');
-            var imageHex = bufx.toString('hex');
-            var imageBinary = bufx.toString('binary');
+           // var imageHex = bufx.toString('hex');
+            //var imageBinary = bufx.toString('binary');
             var imageB64 = bufx.toString('base64');
-            socket.emit('news', imageB64);
+            socket.emit('camara', imageB64);
           
         });
 
