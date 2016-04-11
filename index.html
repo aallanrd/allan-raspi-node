@@ -49,9 +49,13 @@
 
                // var imgArray = new Uint8Array(data.buffer);
 
-                var array = (data);
+              //  var array = (data);
 
-                $("#div_image").append(array);
+                var image = new Image();
+                image.src = 'data:image/png;base64,+' +data  ;
+              //  document.body.appendChild(image);
+
+                $("#div_image").append(image);
             });
 
 
@@ -84,9 +88,13 @@
 
 
           <img src="" id="stream" class="img-responsive thumb" ></div>
+
+          <pre class="panel" id="div_image">here image</pre>
+
+
       <div class="col-md-2"></div>
 
-      <pre class="panel" id="div_image">here image</pre>
+
 
 
   </div>
