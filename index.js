@@ -39,7 +39,7 @@ io.on('connection', function (socket) {
     
     socket.on('tomar-foto', function (data) {
         console.log(data);
-        var args =  ["-r","600x600","stream/image_stream1.jpg"];
+        var args =  ["-r","1200x800","stream/image_stream1.jpg"];
         proc = spawn('fswebcam', args);
     });
 });
