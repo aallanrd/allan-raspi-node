@@ -64,6 +64,19 @@
           socket.emit('start-stream');
       }
 
+      function  call() {
+
+          $.ajax({
+              type: "POST",
+              url:'/stream/image1.jpg',
+              contentType: "image/jpg",
+              data: "",
+              success: function(data){
+                  $('#div_image').html('<img src="' + data + '" />'); },
+          } );
+
+    }
+
   </script>
 </head>
  
@@ -79,9 +92,11 @@
       <div class="col-md-2"></div>
       <div class="col-md-8 text-center">
           <h1>Visualizando </h1>
-          <button class="btn btn-primary" onclick="total()">Reload</button>
+          <button class="btn btn-primary" onclick="call()">Reload</button>
           <img src="" id="stream" class="img-responsive thumb" ></div>
       <div class="col-md-2"></div>
+
+      <div class="panel" id="div_image">here image</div>
 
 
   </div>
