@@ -38,13 +38,18 @@
     <script>
         var socket = io();
 
-        socket.on('news', function (data) {
-            console.log(data);
-
-        });
 
         function tomar() {
             socket.emit('tomar-foto', "Foto Tomada desde CLiente");
+        }
+
+        function sendPic() {
+            socket.emit('send-foto', "Cliente solicita foto");
+            socket.on('news', function (data) {
+                console.log(data);
+
+            });
+
         }
 
 

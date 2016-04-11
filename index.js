@@ -23,7 +23,7 @@ io.on('connection', function (socket) {
 
     socket.on('send-foto', function (data) {
 
-        var args =  ["-r","600x600","stream/image_stream1.jpg"];
+        
         socket.emit('news', 'stream/image_stream1.jpg');
 
     });
