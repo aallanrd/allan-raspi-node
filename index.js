@@ -19,10 +19,11 @@ io.on('connection', function (socket) {
     console.log("Total clientes conectados: ", Object.keys(sockets).length);
 
     //Enviar algo al cliente
-    socket.emit('news', { hello: 'world Allan' });
+    //socket.emit('news', { hello: 'world Allan' });
+    
     
     socket.on('tomar-foto', function (data) {
-        console.log(data);
+        //console.log(data);
         var args =  ["-r","600x600","stream/image_stream1.jpg"];
         proc = spawn('fswebcam', args);
     });
