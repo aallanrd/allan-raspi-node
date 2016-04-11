@@ -67,12 +67,19 @@
       function  call() {
 
           $.ajax({
-              type: "POST",
+              type: "GET",
               url:'/stream/image_stream1.jpg',
               contentType: "image/jpg",
               data: "",
-              success: function(data){
-                  $('#div_image').html('<img src="' + data + '" />'); },
+              success: function(img) {
+                  i = new Image();
+                  i.src = img;
+                  $(div_image).append(i);
+              },
+              error: function(error, txtStatus) {
+                  console.log(txtStatus);
+                  console.log('error');
+              }
           } );
 
     }
