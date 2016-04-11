@@ -21,25 +21,16 @@ io.on('connection', function (socket) {
     sockets[socket.id] = socket;
     console.log("Total clientes conectados: ", Object.keys(sockets).length);
 
-    //Enviar algo al cliente
-    //socket.emit('news', { hello: 'world Allan' });
 
     socket.on('send-foto', function (data) {
 
         console.log(data);
-        
         fs.readFile('stream/image_stream1.jpg', function(err, buf){
-            // it's possible to embed binary data
-            // within arbitrarily-complex objects
-           // var j = decoder.write(buf);
+
             const bufx = Buffer.from(buf, 'ascii');
-
-            var jj = bufx.toString('base64');
-           // var j = buf.toString('utf-8');
-          //  socket.emit('news', j);
-
-
-            socket.emit('news', jj);
+            var imageHex = bufx.toString('hex');
+            var imageBinary = bufx.toString('binary');
+            socket.emit('news', imageHex);
           
         });
 

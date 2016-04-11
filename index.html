@@ -48,8 +48,10 @@
             socket.on('news', function (data) {
 
                // var imgArray = new Uint8Array(data.buffer);
-                alert(data);
-                console.log(data);
+
+                var array = (data);
+
+                $("#div_image").append(array);
             });
 
 
@@ -84,7 +86,7 @@
           <img src="" id="stream" class="img-responsive thumb" ></div>
       <div class="col-md-2"></div>
 
-      <div class="panel" id="div_image">here image</div>
+      <pre class="panel" id="div_image">here image</pre>
 
 
   </div>
