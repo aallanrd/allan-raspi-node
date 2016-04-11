@@ -11,11 +11,25 @@ var proc;
  
 
 var sockets = {};
- 
+
+io.on('connection', function (socket) {
+
+    //Leer clientes conectados
+    sockets[socket.id] = socket;
+    console.log("Total clientes conectados: ", Object.keys(sockets).length);
+
+    //Enviar algo al cliente
+    socket.emit('news', { hello: 'world' });
+    
+    socket.on('my other event', function (data) {
+        console.log(data);
+    });
+});
+
+
 io.on('connection', function(socket) {
  
-  sockets[socket.id] = socket;
-  console.log("Total clientes conectados: ", Object.keys(sockets).length);
+
  
   socket.on('start-stream', function() {
          
@@ -37,7 +51,7 @@ http.listen(3000, function() {
  
 function takePicture(io) {
     
-  	  var args =  ["-r","500x500","stream/image_stream1.jpg"];
+  	  var args =  ["-r","600x600","stream/image_stream1.jpg"];
 	  proc = spawn('fswebcam', args);
 
 }

@@ -1,3 +1,41 @@
+<script>
+
+
+      var socket =  io();
+
+      socket.on('liveStream', function(url)
+      {
+
+          $('#stream').attr('src', url);
+          $('#stream').show();
+      });
+
+
+
+      $.fn.image = function (src, f) {
+
+          return this.each(function () {
+
+              loadImage();
+              var i = new Image();
+              i.src = src;
+              i.onload = f;
+              this.appendChild(i);
+          });
+      }
+
+      function startStream() {
+        //  socket.emit('start-stream');
+          $("#div_image").image("/stream/image_stream1.jpg",function(){
+              window.setTimeout(,1800);
+          });
+      }
+
+
+
+  </script>
+
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 

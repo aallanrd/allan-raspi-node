@@ -33,47 +33,18 @@
     -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bootstrapjs"></script>
-  <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 
-  <script>
+    <script>
+        var socket = io('http://localhost:3000');
 
-
-      var socket =  io();
-
-      socket.on('liveStream', function(url)
-      {
-
-          $('#stream').attr('src', url);
-          $('#stream').show();
-      });
+        socket.on('news', function (data) {
+            console.log(data);
+            socket.emit('my other event', { my: 'data' });
+        });
+    </script>
 
 
-
-      $.fn.image = function (src, f) {
-
-          return this.each(function () {
-              socket.emit('take');
-              loadImage();
-              var i = new Image();
-              i.src = src;
-              i.onload = f;
-              this.appendChild(i);
-          });
-      }
-
-      function startStream() {
-        //  socket.emit('start-stream');
-          $("#div_image").image("/stream/image_stream1.jpg",function(){
-              alert("The image is loaded now");
-          });
-      }
-
-      function loadImage() {
-          window.setTimeout(1800);
-      }
-
-
-  </script>
 </head>
  
 <body class="container" >
