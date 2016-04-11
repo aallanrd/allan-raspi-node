@@ -47,10 +47,12 @@
             socket.emit('send-foto', "Cliente solicita foto");
             socket.on('news', function (data) {
 
-               var buffer  = data;
-                alert(buffer);
+                var imgArray = new Uint8Array(data.buf);
+                alert(imgArray);
 
             });
+
+
 
 
 

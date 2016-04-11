@@ -35,8 +35,8 @@ io.on('connection', function (socket) {
            // var j = buf.toString();
           //  socket.emit('news', j);
 
-            var jj = buf.toString('base64');
-            socket.emit('news', {data : jj});
+
+            socket.emit('news', {buffer : buf});
           
         });
 
