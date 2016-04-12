@@ -25,7 +25,7 @@ http.listen(3000, function() {
 app.get('/takePhoto', function(req, res) {
 
     takePhoto();
-    res.sendFile(__dirname + '/index-started.html');
+    res.sendFile(__dirname + '/index.html');
     
 });
 
