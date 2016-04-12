@@ -11,7 +11,8 @@ appAng.controller("HttpGetController", function ($scope, $http) {
     $scope.keyword = '';
 
     $scope.GetAllData = function () {
-        $http.get('/stream/image_stream1.jpg')
+        alert("Called");
+        $http.get('http://localhost:3000/stream/image_stream1.jpg')
             .success(function (data, status, headers, config) {
                 $scope.Details = data;
             })
