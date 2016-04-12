@@ -47,12 +47,16 @@ io.on('connection', function (socket) {
             var imageB64 = bufx.toString('base64');
             socket.emit('camara', imageB64);
 
-            fs.writeFile("tmp/image-"+imageB64.substring(1,8)+".txt", imageB64, function(err) {
+            try{
+            fs.writeFile("tmp/image-"+imageB64.substring(1,8)+".txt", imageB64.substring(1,8), function(err) {
                 if(err) {
-                    return console.log(err);
+                   // return console.log(err);
                 }
                 console.log("The file was saved! tmp/image-"+imageB64.substring(1,8)+".txt");
             });
+            }catch (err){
+                console.log("Error");
+            }
 
         });
 
