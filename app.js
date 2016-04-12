@@ -6,12 +6,12 @@
 var appAng = angular.module('myApp', []);
 
 
-app.controller("HttpGetController", function ($scope, $http) {
+appAng.controller("HttpGetController", function ($scope, $http) {
 
     $scope.keyword = '';
 
     $scope.GetAllData = function () {
-        $http.get('stream/image_stream1.jpg')
+        $http.get('/stream/image_stream1.jpg')
             .success(function (data, status, headers, config) {
                 $scope.Details = data;
             })
