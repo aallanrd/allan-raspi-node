@@ -45,14 +45,16 @@ io.on('connection', function (socket) {
             const bufx = Buffer.from(buf, 'ascii');
 
             var imageB64 = bufx.toString('base64');
-            socket.emit('camara', imageB64);
+            var name = "tmp/image-"+ (imageB64.substring(1,8))+".txt";
+
 
             try{
-            fs.writeFile("tmp/image-"+imageB64.substring(1,8)+".txt", imageB64.substring(1,8), function(err) {
+            fs.writeFile(name, imageB64.substring(1,8), function(err) {
                 if(err) {
                    // return console.log(err);
                 }
                 console.log("The file was saved! tmp/image-"+imageB64.substring(1,8)+".txt");
+                socket.emit('camara', imageB64);
             });
             }catch (err){
                 console.log("Error");
