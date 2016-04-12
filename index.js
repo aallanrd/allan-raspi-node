@@ -31,7 +31,7 @@ app.get('/takePhoto', function(req, res) {
 
 app.get('/getPhoto', function(req, res) {
 
-    res.sendFile('stream/image_stream1.jpg')
+    res.sendFile('/stream/image_stream1.jpg')
 
 });
 
@@ -51,5 +51,10 @@ app.get('/', function(req, res) {
 app.get('/stream/image_stream1.jpg', function(req, res) {
     res.sendFile(__dirname + '/stream/image_stream1.jpg');
 });
+
+app.get('/appjs', function(req, res) {
+    res.sendFile(__dirname + '/app.js');
+});
+
 
 
