@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
  
 <head>
   <meta charset="utf-8">
@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
   <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
+
     <style type="text/css">
   #stream {
     height: 99%;
@@ -25,6 +26,8 @@
  
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
   <!-- Bootstrap JavaScript -->
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
@@ -41,11 +44,14 @@
           <h1>Visualizando </h1>
           <button class="btn btn-primary btn-lg" onclick="sendPic()"> <i class="fa fa-camera"></i> - Empezar Stream -</button>
           <hr>
+          <button class="btn btn-danger" ng-click="GetAllData()"> Get Details</button>
+          <div class="panel" ng-controller="HttpGetController">{{ Details }}</div>
           <div class="panel" id="div_image">Image from Camera </div>
        </div>
       <div class="col-md-2"></div>
   </div>
- 
+
+  <script src="/appjs"></script>
 </body>
 
 </html>
