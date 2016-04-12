@@ -10,10 +10,16 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+//See https://nodejs.org/api/fs.html
 var fs = require('fs');
+
+
 var path = require('path');
- 
+
+// See https://nodejs.org/api/child_process.html
 var spawn = require('child_process').spawn;
+
+
 var proc;
  
 var sockets = {};
@@ -24,6 +30,8 @@ io.on('connection', function (socket) {
     sockets[socket.id] = socket;
     console.log("Total clientes conectados: ", Object.keys(sockets).length);
 
+
+    //API Funciones de Cliente
     socket.on('tomar-foto', function (data) {
         console.log(data);
         var args =  ["-r","1200x800","stream/image_stream1.jpg"];
@@ -35,8 +43,6 @@ io.on('connection', function (socket) {
         console.log(data);
         fs.readFile('stream/image_stream1.jpg', function(err, buf){
             const bufx = Buffer.from(buf, 'ascii');
-           // var imageHex = bufx.toString('hex');
-            //var imageBinary = bufx.toString('binary');
             var imageB64 = bufx.toString('base64');
             socket.emit('camara', imageB64);
         });
@@ -44,8 +50,6 @@ io.on('connection', function (socket) {
     
 
 });
-
-
 
 http.listen(3000, function() {
   console.log('Server  192.168.0.106:3000');
@@ -63,6 +67,10 @@ app.get('/', function(req, res) {
 
 app.get('/stream/image_stream1.jpg', function(req, res) {
     res.sendFile(__dirname + '/stream/image_stream1.jpg');
+});
+
+app.get('/ALLANAPI.JS', function(req, res) {
+    res.sendFile(__dirname + '/api.js');
 });
 
 

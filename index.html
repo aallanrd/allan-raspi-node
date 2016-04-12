@@ -6,16 +6,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Raspberry Pi - AllanRD</title>
+  <title>Raspberry Pi - NodeJS</title>
  
-  <!-- Usa Bootstrap CDN en modo de producción CSS  -->
-
+  <!-- Usa Bootstrap CDN en modo de producción CSS -->
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <style type="text/css">
   #stream {
@@ -26,54 +23,14 @@
   }
   </style>
  
-  <!-- jQuery-->
+  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-    <!-- <>   Bootstrap JavaScript<>  -->
-
+  <!-- Bootstrap JavaScript -->
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <!-- Node Modules (-- NPM --) Socket.io  http://socket.io/ -->
-    <script src="/socket.io/socket.io.js"></script>
-
-
-    <script>
-
-        var socket = io();
-        //<!-- <>   Client  JavaScript API<>  -->
-        function sendPic() {
-
-            //<!-- <>   socket.emit  calling index.js(socket.on('tomar-foto', function (data) {..... <>  -->
-            socket.emit('tomar-foto', "toma-foto-cliente");
-
-
-            setTimeout(function(){
-
-               // <!-- <>   socket.emit  calling index.js(socket.on('send-foto', function (data) {)..... <>  -->
-                socket.emit('send-foto', "cliente-solicita-foto");
-
-               /* <!-- <>   socket.on response
-                 * @data : base64 from index.ljs
-                 *  var imageB64 = bufx.toString('base64');
-                 *  socket.emit('camara', imageB64);
-                 .... <>  -->
-                 */
-                socket.on('camara', function (data) {
-
-
-                    var image = new Image();
-                    image.src = 'data:image/png;base64,' +data  ;
-                    //image.class.add("responsive-img");
-                    $("#div_image").html( image );
-                    $("#div_image").addClass("")
-                });
-                sendPic();
-
-            },
-           // <!-- <>   Camera Main Problem Wait for calling ..... <>  -->
-            3000);
-        }
-    </script>
+  <!-- Node Modules (-- NPM --) Socket.io  http://socket.io/ -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Allan API Functions (--   http://aallanrd.github.io  --) -->
+  <script src="/ALLAN-API.JS"></script>
 
 
 </head>
