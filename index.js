@@ -51,7 +51,7 @@ io.on('connection', function (socket) {
                 if(err) {
                     return console.log(err);
                 }
-                console.log("The file was saved!" + tmp/image-"+imageB64.substring(1,8)+".txt);
+                console.log("The file was saved! tmp/image-"+imageB64.substring(1,8)+".txt");
             });
 
         });
