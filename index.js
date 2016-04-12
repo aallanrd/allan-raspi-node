@@ -35,6 +35,7 @@ app.get('/takePhoto', function(req, res) {
 });
 
 app.get('/getPhoto', function(req, res) {
+
     fs.readFile('stream/image_stream1.jpg', function(err, buf){
         const bufx = Buffer.from(buf, 'ascii');
 
@@ -46,6 +47,7 @@ app.get('/getPhoto', function(req, res) {
             fs.writeFile(name, name, function(err) {
             console.log("The file was saved! tmp/image-"+num+".txt");
                 //socket.emit('camara', imageB64);
+                res.sendFile(__dirname + "/tmp/image-"+ num +".txt");
             });
         }catch (err){
             console.log("Error");
