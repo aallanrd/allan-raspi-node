@@ -38,23 +38,12 @@ app.get('/getPhoto', function(req, res) {
 
     fs.readFile('stream/image_stream1.jpg', function(err, buf){
         const bufx = Buffer.from(buf, 'ascii');
-
         var imageB64 = bufx.toString('base64');
         var num = Math.floor((Math.random() * 100000000) + 1);
         var name = "/tmp/image-"+ num +".txt";
-
-        try{
-            fs.writeFile(name, name, function(err) {
-            console.log("The file was saved! tmp/image-"+num+".txt");
-                //socket.emit('camara', imageB64);
-
-            });
-            res.sendFile(__dirname + "/tmp/image-"+ num +".txt");
-        }catch (err){
-            console.log("Error");
-        }
-
     });
+
+    res.sendfile('stream/image_stream1.jpg')
 
 });
 
