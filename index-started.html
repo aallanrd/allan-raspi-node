@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raspberry Pi - NodeJS</title>
+ 
+  <!-- Usa Bootstrap CDN en modo de producción CSS -->
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <style type="text/css">
+  #stream {
+    height: 99%;
+    margin: 0px auto;
+    display: block;
+    margin-top: 20px;
+  }
+  </style>
+ 
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <!-- Node Modules (-- NPM --) Socket.io  http://socket.io/ -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Allan API Functions (--   http://aallanrd.github.io  --) -->
+  <script src="/allan-node-api"></script>
+
+
+</head>
+ 
+<body class="container" >
+  <h1 class="text-center">Camera Stream
+    <small>Powered by AllanRD</small>
+  </h1>
+  <hr>
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 text-center">
+          <h1>Started </h1>
+          <button class="btn btn-primary btn-lg" onclick="sendPic()"> <i class="fa fa-camera"></i> - Empezar Stream -</button>
+          <hr>
+          <div class="panel" id="div_image">Image from Camera </div>
+       </div>
+      <div class="col-md-2"></div>
+  </div>
+ 
+</body>
+
+</html>
