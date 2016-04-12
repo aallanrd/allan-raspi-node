@@ -30,6 +30,7 @@ function sendPic() {
                 //image.class.add("responsive-img");
                 $("#div_image").html( image );
                 $("#div_image").addClass("")
+                SaveToDisk(image);
             });
             sendPic();
 

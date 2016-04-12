@@ -43,9 +43,20 @@ io.on('connection', function (socket) {
         console.log(data);
         fs.readFile('stream/image_stream1.jpg', function(err, buf){
             const bufx = Buffer.from(buf, 'ascii');
+            var imagex16 = bufx.toString('hex');
             var imageB64 = bufx.toString('base64');
             socket.emit('camara', imageB64);
+
+            fs.writeFile("/tmp/image-"+imagex16+".txt", imageB64, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!" + imagex16);
+            });
+
         });
+
+
     });
     
 
