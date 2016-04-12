@@ -8,6 +8,8 @@ var app = express();
 
 var sleep = require('sleep');
 
+var io = require('socket.io');
+
 var http = require('http').Server(app);
 
 //See https://nodejs.org/api/fs.html
