@@ -52,8 +52,5 @@ app.get('/stream/image_stream1.jpg', function(req, res) {
     res.sendFile(__dirname + '/stream/image_stream1.jpg');
 });
 
-app.get('/allan-node-api', function(req, res) {
-    res.sendFile(__dirname + '/api.js');
-});
 
 
