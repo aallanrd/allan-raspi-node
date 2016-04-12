@@ -47,8 +47,9 @@ app.get('/getPhoto', function(req, res) {
             fs.writeFile(name, name, function(err) {
             console.log("The file was saved! tmp/image-"+num+".txt");
                 //socket.emit('camara', imageB64);
-                res.sendFile(__dirname + "/tmp/image-"+ num +".txt");
+
             });
+            res.sendFile(__dirname + "/tmp/image-"+ num +".txt");
         }catch (err){
             console.log("Error");
         }
